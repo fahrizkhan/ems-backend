@@ -23,9 +23,9 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstname;
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String lastname;
     @Column(name = "email_id", nullable = false, unique = true)
     private String email;

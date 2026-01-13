@@ -4,27 +4,21 @@ import test.ems_backend.entity.Employee;
 
 public class EmployeeMapper {
     
-    public static EmployeeDto toDto(Employee employee) {
-        if (employee == null) {
-            return null;
-        }
-        EmployeeDto dto = new EmployeeDto();
-        dto.setId(employee.getId());
-        dto.setFirstname(employee.getFirstname());
-        dto.setLastname(employee.getLastname());
-        dto.setEmail(employee.getEmail());
-        return dto;
+    public static EmployeeDto maptoEmployeedto(Employee employee) {
+        return new EmployeeDto(
+            employee.getId(),
+            employee.getFirstname(),
+            employee.getLastname(),
+            employee.getEmail()
+        );
     }
 
-    public static Employee toEntity(EmployeeDto dto) {
-        if (dto == null) {
-            return null;
-        }
-        Employee employee = new Employee();
-        employee.setId(dto.getId());
-        employee.setFirstname(dto.getFirstname());
-        employee.setLastname(dto.getLastname());
-        employee.setEmail(dto.getEmail());
-        return employee;
+    public static Employee maptoEmployee(EmployeeDto dto) {
+        return new Employee(
+            dto.getId(),
+            dto.getFirstname(),
+            dto.getLastname(),
+            dto.getEmail()
+        );
     }
 }
